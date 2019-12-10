@@ -14,7 +14,7 @@ public class XcodeSettingsPostProcesser
         proj.ReadFromString(File.ReadAllText(projPath));
         string target = proj.TargetGuidByName("Unity-iPhone");
 
-        proj.SetBuildProperty(target, "SWIFT_VERSION", "3.2");
+        proj.SetBuildProperty(target, "SWIFT_VERSION", "5.0");
 
         File.WriteAllText(projPath, proj.WriteToString());
 
