@@ -2,10 +2,10 @@ import Foundation
 import Speech
 
 public class SpeechRecognizer : NSObject {
-    static let sharedInstance: SpeechRecognizer = SpeechRecognizer()
+    @objc static let sharedInstance: SpeechRecognizer = SpeechRecognizer()
 
     private var _unitySendMessageGameObjectName: String = "SpeechRecognizer"
-    var unitySendMessageGameObjectName: String {
+    @objc var unitySendMessageGameObjectName: String {
         get {
             return _unitySendMessageGameObjectName
         }
@@ -24,7 +24,7 @@ public class SpeechRecognizer : NSObject {
         speechRecognizer.delegate = self
     }
 
-    func requestRecognizerAuthorization() {
+    @objc func requestRecognizerAuthorization() {
         SFSpeechRecognizer.requestAuthorization { authStatus in
             OperationQueue.main.addOperation {
                 switch authStatus {
@@ -48,7 +48,7 @@ public class SpeechRecognizer : NSObject {
         }
     }
 
-    func startRecord() -> Bool {
+    @objc func startRecord() -> Bool {
         if audioEngine.isRunning {
             return false
         }
@@ -56,7 +56,7 @@ public class SpeechRecognizer : NSObject {
         return true
     }
 
-    func stopRecord() -> Bool {
+    @objc func stopRecord() -> Bool {
         if !audioEngine.isRunning {
             return false
         }
