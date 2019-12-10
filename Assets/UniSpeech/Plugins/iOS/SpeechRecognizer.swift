@@ -69,13 +69,13 @@ public class SpeechRecognizer : NSObject {
         refreshTask()
 
         let audioSession = AVAudioSession.sharedInstance()
-        try audioSession.setCategory(AVAudioSessionCategoryRecord)
-        try audioSession.setMode(AVAudioSessionModeMeasurement)
-        try audioSession.setActive(true, with: .notifyOthersOnDeactivation)
+        try audioSession.setCategory(AVAudioSession.Category.record)
+        try audioSession.setMode(AVAudioSession.Mode.measurement)
+        try audioSession.setActive(true, options: .notifyOthersOnDeactivation)
         
         recognitionRequest = SFSpeechAudioBufferRecognitionRequest()
         
-        guard let inputNode = audioEngine.inputNode else { fatalError("Audio engine has no input node") }
+        let inputNode = audioEngine.inputNode
         guard let recognitionRequest = recognitionRequest else { fatalError("Unable to created a SFSpeechAudioBufferRecognitionRequest object") }
         
         recognitionRequest.shouldReportPartialResults = true
