@@ -90,13 +90,22 @@ public class SpeechRecognizer : NSObject {
                 isFinal = result.isFinal
             }
             
-            if error != nil || isFinal {
+            if error != nil {
                 self.audioEngine.stop()
                 inputNode.removeTap(onBus: 0)
                 
                 self.recognitionRequest = nil
                 self.recognitionTask = nil
                 self.unitySendMessage("OnError", message: error.debugDescription)
+            }
+
+            if isFinal {
+                self.audioEngine.stop()
+                inputNode.removeTap(onBus: 0)
+                
+                self.recognitionRequest = nil
+                self.recognitionTask = nil
+                self.unitySendMessage("OnFinished", message: error.debugDescription)
             }
         }
         
