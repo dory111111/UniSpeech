@@ -120,13 +120,13 @@ public class SpeechRecognizer : NSObject {
         try audioEngine.start()
     }
 
-    func unitySendMessage(_ methodName: String, message: String = "") {
+    @objc func unitySendMessage(_ methodName: String, message: String = "") {
         UnitySendMessage(self.unitySendMessageGameObjectName, methodName, message)
     }
 }
 
 extension SpeechRecognizer: SFSpeechRecognizerDelegate {
-    public func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
+    @objc public func speechRecognizer(_ speechRecognizer: SFSpeechRecognizer, availabilityDidChange available: Bool) {
         if (available) {
             unitySendMessage("OnAvailable")
         } else {
