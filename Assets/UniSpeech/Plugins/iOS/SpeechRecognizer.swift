@@ -105,7 +105,7 @@ public class SpeechRecognizer : NSObject {
                 
                 self.recognitionRequest = nil
                 self.recognitionTask = nil
-                self.unitySendMessage("OnFinished", message: error.debugDescription)
+                self.unitySendMessage("OnFinished",  message: result.bestTranscription.formattedString)
             }
         }
         

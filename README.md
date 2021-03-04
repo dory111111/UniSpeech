@@ -1,11 +1,15 @@
 # UniSpeech
 
+> Forked from the seemingly abandoned [noir-neo/UniSpeech](https://github.com/noir-neo/UniSpeech)
 iOS Speech framework plugin for Unity
 
 ## Installation
 
-1. From Source
-    - Clone this repo and copy the `Assets/UniSpeech/Pluigins/iOS/` and `Assets/UnitySwift/` directory to your own project.
+1.Install dependent plugin
+ https://github.com/richardschembri/unity-swift
+
+2. From Source
+    - Clone this repo and copy the `Assets/UniSpeech/Pluigins/iOS/` directory to your own project.
     
 ## Usage
 

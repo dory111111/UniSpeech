@@ -4,7 +4,7 @@
     {
         void OnRecognized(string transcription);
         void OnError(string description);
-        void OnFinished();
+        void OnFinished(string transcription);
         void OnAuthorized();
         void OnUnauthorized();
         void OnAvailable();
